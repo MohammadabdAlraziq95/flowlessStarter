@@ -27,4 +27,6 @@ router.register(r'pr', PressureReadingViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('polls/', include('polls.urls')),
+
 ]
