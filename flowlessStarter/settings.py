@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'fl_tags.apps.FlTagsConfig',
     'polls.apps.PollsConfig',
     'rest_framework',
     "Pressure",
