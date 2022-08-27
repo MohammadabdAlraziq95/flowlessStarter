@@ -32,6 +32,7 @@ class PressureReading(models.Model):
     ID = models.AutoField(primary_key=True)
     DateTime = models.DateTimeField(auto_now_add=True)
     Value = models.DecimalField(decimal_places=1, max_digits=3)
+    raw_value =  models.DecimalField(decimal_places=1, max_digits=3,null=True)
     # SensorId =  models.ForeignKey(PressureSensor,on_delete=models.CASCADE)
     SensorId = models.ManyToManyField(PressureSensor)
     
