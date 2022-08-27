@@ -7,7 +7,7 @@ from polls.models import Choice, Question
 
 
 class ChoiceInline(admin.TabularInline):
-    model = Choice
+    model = Choice.question.through
 
 class TagsInline(GenericTabularInline):
     model = Tags
