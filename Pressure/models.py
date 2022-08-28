@@ -1,9 +1,5 @@
 from re import T
 from django.db import models
-
-# Create your models here.
-
-
 from django.db import models
 from django.forms import ValidationError
 from django.utils import timezone
@@ -36,4 +32,7 @@ class PressureReading(models.Model):
     ID = models.AutoField(primary_key=True)
     DateTime = models.DateTimeField(auto_now_add=True)
     Value = models.DecimalField(decimal_places=1, max_digits=3)
-    SensorId =  models.ForeignKey(PressureSensor,on_delete=models.CASCADE)
+    raw_value =  models.DecimalField(decimal_places=1, max_digits=3,null=True)
+    # SensorId =  models.ForeignKey(PressureSensor,on_delete=models.CASCADE)
+    SensorId = models.ManyToManyField(PressureSensor)
+    

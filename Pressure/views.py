@@ -55,6 +55,8 @@ class PressureSensorViewSet(viewsets.ModelViewSet):
 class PressureReadingViewSet(viewsets.ModelViewSet):
 
      queryset = PressureReading.objects.all()
+     # form_class = CreateSensorForm
      serializer_class = PressureReadingSerializer
      filter_backends = [DjangoFilterBackend]
      filterset_fields = ['ID', 'DateTime']
+     

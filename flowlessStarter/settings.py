@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'fl_tags.apps.FlTagsConfig',
     'polls.apps.PollsConfig',
     'rest_framework',
     "Pressure",
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'flowlessStarter.middleware.Timing'
 ]
 
 ROOT_URLCONF = 'flowlessStarter.urls'
