@@ -1,4 +1,5 @@
 import datetime
+# from http.client import HTTPResponse
 from django.http import HttpResponse
 import json
 from django.core.exceptions import ObjectDoesNotExist
@@ -9,7 +10,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response 
 from rest_framework import viewsets, views
 from rest_framework import response
-
+from django.views import View
 from Pressure.models import PressureReading, PressureSensor
 from Pressure.serializer import PressureReadingSerializer, PressureSensorSerializer
 # Create your views here.
@@ -76,4 +77,11 @@ def func_pressure_readings(request, format=None):
      elif request.GET.get('calculation') == "sum":
         sum, count = readings_sum(queryset)
         return HttpResponse('Sum= ' +str(sum))
+def check_if_missing_params(since, until, calculation):
+    if since is None or until is None or calculation is None:
+        return True
 
+
+class Home(View):
+    def get(self, request, *args ,**kwargs):
+        return HttpResponse('Hello, World!')
