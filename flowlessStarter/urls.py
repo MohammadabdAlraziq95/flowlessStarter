@@ -18,7 +18,7 @@ from pyexpat import model
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
-from Pressure.views import PressureReadingViewSet, PressureSensorViewSet, calculate_class_based, func_pressure_readings
+from Pressure.views import Home, PressureReadingViewSet, PressureSensorViewSet, calculate_class_based, func_pressure_readings
 from rest_framework import routers
 from django.urls import include, re_path
 
@@ -27,6 +27,7 @@ router.register(r'ps', PressureSensorViewSet)
 router.register(r'pr', PressureReadingViewSet)
 from Pressure import views
 urlpatterns = [
+    path('home/', Home.as_view() , name='home'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('polls/', include('polls.urls')),
