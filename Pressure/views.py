@@ -15,6 +15,8 @@ from Pressure.models import PressureReading, PressureSensor
 from Pressure.serializer import PressureReadingSerializer, PressureSensorSerializer
 # Create your views here.
 import logging
+
+from utils import readings_sum
 # we can see built in veriables here by printing logging
 print (dir(logging))
 
@@ -71,14 +73,6 @@ class calculate_class_based(views.APIView):
         else: logging.error("this is critical issue")
 
 
-def readings_sum(queryset):
-    comulative_sum = 0
-    number_of_readings = 0
-    for obj in queryset:
-        comulative_sum = comulative_sum + obj.Value
-        number_of_readings = number_of_readings + 1
-    return comulative_sum, number_of_readings
-
 def func_pressure_readings(request, format=None):
 
      since = datetime.datetime.fromisoformat(request.GET.get('since'))
@@ -92,9 +86,6 @@ def func_pressure_readings(request, format=None):
      elif request.GET.get('calculation') == "sum":
         sum, count = readings_sum(queryset)
         return HttpResponse('Sum= ' +str(sum))
-def check_if_missing_params(since, until, calculation):
-    if since is None or until is None or calculation is None:
-        return True
 
 
 class Home(View):
