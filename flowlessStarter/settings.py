@@ -170,13 +170,13 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'DEBUG',
         },
-        #  'polls': {
-        #     'handlers': ['polls'],
-        #     'level': 'DEBUG',
-        #             },
-        # 'Pressure': {
-        #     'handlers': ['Pressure'],
-        #     'level':'DEBUG',
-        # },
+         'polls': {
+            'handlers': ['polls'],
+            'level': 'DEBUG',
+                    },
+        'Pressure': {
+            'handlers': ['Pressure'],
+            'level':'DEBUG',
+        },
     },
 }
