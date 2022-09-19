@@ -1,0 +1,14 @@
+# PURPUSE OF LOGGING : print out to consol or file , print logs of whats going on 
+
+# logging types
+#------ 1- DEBUG: when executed code or API requests include debugging parameters or headers
+
+#------ 2- INFO:  the application entered a certain state
+#---------- example :  INFO log level with information on which user requested authorization
+
+#------ 3- WARNING:  the log level that indicates that something unexpected happened in the application but the code can continue the work.
+
+#------ 4- ERROR: you can see time + errors -> these errors come from users activites and caused by somthing like not compatability in server configs
+#--------- example: attachment image size is limited .
+
+#------ 5- CRITICAL: crucial part of the application is not working and we are not delivering a business logic
