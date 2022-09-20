@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'fl_tags.apps.FlTagsConfig',
     'polls.apps.PollsConfig',
+    'blog.apps.BlogConfig',
     'rest_framework',
     "Pressure",
     'django.contrib.admin',
