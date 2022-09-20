@@ -13,20 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os import uname
 from pyexpat import model
 from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
-from Pressure.views import PressureReadingViewSet, PressureSensorViewSet
+from Pressure.views import Home, PressureReadingViewSet, PressureSensorViewSet, calculate_class_based, func_pressure_readings
 from rest_framework import routers
+from django.urls import include, re_path
 
 router = routers.DefaultRouter()
 router.register(r'ps', PressureSensorViewSet)
 router.register(r'pr', PressureReadingViewSet)
-
+from Pressure import views
 urlpatterns = [
+    path('home/', Home.as_view() , name='home'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('polls/', include('polls.urls')),
-
+    re_path(r'func_pressure_readings/', func_pressure_readings, name='func_pressure_readings'),
+    path('calculate_class_based', views.calculate_class_based.as_view(), name='calculate_class_based'),
 ]

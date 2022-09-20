@@ -118,9 +118,9 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -141,4 +141,42 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'polls': {
+            'class': 'logging.FileHandler',
+            'filename': 'my_app.log',
+        },
+        'Pressure': {
+            'class': 'logging.FileHandler',
+            'filename': 'my_app1.log',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+         'polls': {
+            'handlers': ['polls'],
+            'level': 'DEBUG',
+                    },
+        'Pressure': {
+            'handlers': ['Pressure'],
+            'level':'DEBUG',
+        },
+    },
 }
