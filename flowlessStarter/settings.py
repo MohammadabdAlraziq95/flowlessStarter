@@ -142,3 +142,41 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'polls': {
+            'class': 'logging.FileHandler',
+            'filename': 'my_app.log',
+        },
+        'Pressure': {
+            'class': 'logging.FileHandler',
+            'filename': 'my_app1.log',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+         'polls': {
+            'handlers': ['polls'],
+            'level': 'DEBUG',
+                    },
+        'Pressure': {
+            'handlers': ['Pressure'],
+            'level':'DEBUG',
+        },
+    },
+}
