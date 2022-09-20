@@ -152,11 +152,11 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
-        'file1': {
+        'polls': {
             'class': 'logging.FileHandler',
             'filename': 'my_app.log',
         },
-        'file2': {
+        'Pressure': {
             'class': 'logging.FileHandler',
             'filename': 'my_app1.log',
         },
