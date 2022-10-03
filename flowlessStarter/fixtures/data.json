@@ -53,5 +53,13 @@
           "choice_text": "Hello Choice seeding",
           "votes" : 1
         }
+      },
+      {
+        "model": "polls.Choice",
+        "pk": 5,
+        "fields": {
+          "choice_text": "Hello Choice 2",
+          "votes" : 1
+        }
       }
   ]
