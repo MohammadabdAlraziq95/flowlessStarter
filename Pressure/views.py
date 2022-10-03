@@ -1,9 +1,10 @@
 import datetime
+from django.conf import settings
 # from http.client import HTTPResponse
 from django.http import HttpResponse
 import json
 from django.core.exceptions import ObjectDoesNotExist
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from rest_framework.decorators import api_view
 from rest_framework import  viewsets
 from django_filters.rest_framework import DjangoFilterBackend
@@ -13,6 +14,10 @@ from rest_framework import response
 from django.views import View
 from Pressure.models import PressureReading, PressureSensor
 from Pressure.serializer import PressureReadingSerializer, PressureSensorSerializer
+from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
+from rest_framework import permissions
+
 # Create your views here.
 import logging
 
@@ -87,10 +92,27 @@ def func_pressure_readings(request, format=None):
         sum, count = readings_sum(queryset)
         return HttpResponse('Sum= ' +str(sum))
 
+@api_view(['GET'])
+@permission_classes((permissions.AllowAny,))
+@login_required(login_url= settings.REDIRECT_URL)
+def Home(request):
+     user = authenticate(username='mohammad', password='Mhmad123@')
+     if user is not None:
+          # A backend authenticated the credentials
+         return HttpResponse('Hi ' + user.username + "!")
+     else:
+        #  return HttpResponse('Hi Guest!')
+           return redirect(settings.REDIRECT_URL)
 
-class Home(View):
-    def get(self, request, *args ,**kwargs):
-        return HttpResponse('Hello, World!')
+# class Home(View):
+#     def get(self, request, *args ,**kwargs):
+#         user = authenticate(username='john', password='secret')
+#         if user is not None:
+#           # A backend authenticated the credentials
+#          return HttpResponse('Hi Guest!')
+#         else:
+#          return HttpResponse('Hi Guest!')
+#          No backend authenticated the credentials
 
 
 # PURPUSE OF LOGGING : print out to consol or file , print logs of whats going on 

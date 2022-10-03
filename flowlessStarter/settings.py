@@ -147,7 +147,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
-
+REDIRECT_URL = "/admin/login"
 
 LOGGING = {
     'version': 1,

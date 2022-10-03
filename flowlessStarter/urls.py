@@ -27,7 +27,7 @@ router.register(r'ps', PressureSensorViewSet)
 router.register(r'pr', PressureReadingViewSet)
 from Pressure import views
 urlpatterns = [
-    path('home/', Home.as_view() , name='home'),
+    path('api/home/', views.Home , name='home'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('polls/', include('polls.urls')),
