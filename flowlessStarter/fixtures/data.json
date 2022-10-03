@@ -9,6 +9,17 @@
         "InstallationDate": "2012-09-04 06:00:00.000000"
       }
     },
+    
+    {
+        "model": "Pressure.PressureSensor",
+        "pk": 1,
+        "fields": {
+          "Label": "PSSR_four",
+          "Latitude": 0.000003,
+          "Longitude": 0.000003,
+          "InstallationDate": "2012-09-04 06:00:00.000000"
+        }
+      } ,
     {
         "model": "Pressure.PressureSensor",
         "pk": 2,
