@@ -1,5 +1,6 @@
 from http.client import HTTPResponse
 from re import T
+from tkinter import CASCADE
 from django.db import models
 from django.db import models
 from django.forms import ValidationError
@@ -36,4 +37,5 @@ class PressureReading(models.Model):
     raw_value =  models.DecimalField(decimal_places=1, max_digits=3,null=True)
     # SensorId =  models.ForeignKey(PressureSensor,on_delete=models.CASCADE)
     SensorId = models.ManyToManyField(PressureSensor)
+    # sensor = models.ForeignKey(to=PressureSensor, on_delete=models.CASCADE)
 

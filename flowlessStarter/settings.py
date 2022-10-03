@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'django_seed',
+
 ]
 
 MIDDLEWARE = [
@@ -90,7 +92,9 @@ DATABASES = {
 
     }
 }
-
+FIXTURE_DIRS = [
+    'fixtures',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

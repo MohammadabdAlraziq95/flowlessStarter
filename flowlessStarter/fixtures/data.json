@@ -1,0 +1,46 @@
+[
+    {
+      "model": "Pressure.PressureSensor",
+      "pk": 1,
+      "fields": {
+        "Label": "PSSR_two",
+        "Latitude": 0.000003,
+        "Longitude": 0.000003,
+        "InstallationDate": "2012-09-04 06:00:00.000000"
+      }
+    },
+    {
+        "model": "Pressure.PressureSensor",
+        "pk": 2,
+        "fields": {
+          "Label": "PSSR_three",
+          "Latitude": 0.000003,
+          "Longitude": 0.000003,
+          "InstallationDate": "2012-09-04 06:00:00.000000"
+        }
+      },
+    {
+      "model": "polls.Question",
+      "pk": 3,
+      "fields": {
+        "question_text": "Hello seeding",
+        "pub_date" : "2012-09-04 06:00:00.000000"
+      }
+    },
+    {
+        "model": "polls.Question",
+        "pk": 4,
+        "fields": {
+          "question_text": "Hello seeding1",
+          "pub_date" : "2012-09-04 06:00:00.000000"
+        }
+      },
+      {
+        "model": "polls.Choice",
+        "pk": 5,
+        "fields": {
+          "choice_text": "Hello Choice seeding",
+          "votes" : 1
+        }
+      }
+  ]
